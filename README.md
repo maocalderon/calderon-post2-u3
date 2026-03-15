@@ -18,4 +18,3 @@ Este proyecto consiste en el diseño e implementación de un dashboard web respo
 
 ## Evidencia de Diseño
 - **Vista Escritorio (1280px):** ![Escritorio](img/desktop-view.png)
-- **Vista Tablet/Móvil (768px):** ![Móvil](img/mobile-view.png)
