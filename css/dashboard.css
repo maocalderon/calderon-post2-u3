@@ -1,0 +1,61 @@
+/* Variables y Reset Global [cite: 1563] */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --sidebar-w: 220px;
+    --topbar-h: 60px;
+    --primary: #065A82;
+    --dark: #21295C;
+    --bg: #F5F5F5;
+    --white: #FFFFFF;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+body { font-family: Arial, sans-serif; background: var(--bg); display: grid; min-height: 100vh; }
+
+/* Grid Principal de la Aplicación [cite: 1600, 1602] */
+.app-layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    grid-template-rows: var(--topbar-h) 1fr;
+    grid-template-areas: 
+        "sidebar topbar"
+        "sidebar main";
+}
+
+.sidebar { grid-area: sidebar; background: var(--dark); display: flex; flex-direction: column; color: white; }
+.topbar { grid-area: topbar; background: var(--white); display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem; border-bottom: 1px solid #ccc; }
+.dashboard-main { grid-area: main; padding: 1.5rem; overflow-y: auto; }
+
+/* Grid Responsivo para las Tarjetas (Fila 1) [cite: 1694, 1703] */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: var(--white);
+    padding: 1.25rem;
+    border-radius: 6px;
+    border-top: 3px solid var(--primary);
+    box-shadow: var(--shadow);
+}
+
+/* Panel Principal 2fr / 1fr (Fila 2) [cite: 1739, 1742] */
+.content-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 800px) {
+    .content-row { grid-template-columns: 1fr; } /* Se apilan en tablet/móvil [cite: 1799] */
+}
+
+.card { background: var(--white); padding: 1.5rem; border-radius: 6px; box-shadow: var(--shadow); }
+
+/* Estilos de los Badges [cite: 1758] */
+.badge { padding: 2px 8px; border-radius: 1rem; font-size: 0.75rem; font-weight: bold; }
+.badge--active { background: #E8F5E9; color: #2E7D32; }
+.badge--review { background: #FFF8E1; color: #F57F17; }
